@@ -1,0 +1,29 @@
+-- gvazlevs 1 dan 10 mde gayofisas nashts imaze razec zustad ar iyofa
+function checkRemainder(number)
+  local remainders = {}
+  for i = 1, 10 do
+    local remainder = number % i
+    if remainder ~= 0 then
+      table.insert(remainders, {divisor = i, remainder = remainder})
+    end
+  end
+  
+  if #remainders == 0 then
+    return true
+  else
+    return false, remainders
+  end
+end
+
+-- gamoyenebis magaliti:
+local num = 100
+local isDivisible, remainders = checkRemainder(num)
+if isDivisible then
+  print(num .. " is divisible by 1 to 10 without any remainders.")
+else
+  print(num .. " is not divisible by 1 to 10 without any remainders.")
+  for _, data in ipairs(remainders) do
+    print("Remainder when divided by " .. data.divisor .. ": " .. data.remainder)
+  end
+end
+-- gamoyenebulia remainder ari nashti. rac movzebne iyo isDivisible da sabolood daaxloebit 30 cdis mere davfixe
